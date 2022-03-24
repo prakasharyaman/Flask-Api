@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 2,
+  "dockerfileLines": [
+    "FROM library/python:3.10-alpine",
+    "RUN apk update && apk upgrade && apk add --no-cache make g++ bash git openssh postgresql-dev curl",
+    "RUN mkdir -p /usr/src/app",
+    "WORKDIR /usr/src/app",
+    "ADD https://wolfskaempf.de /time.now",
+    "COPY ./ /usr/src/app",
+    "RUN pip install -r requirements.txt",
+    "EXPOSE 80",
+    "CMD sh /usr/src/app/utils/run.sh"
+  ]
+}
