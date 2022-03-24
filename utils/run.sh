@@ -1,2 +1,2 @@
 #!/bin/sh
-gunicorn tops:app --bind=0.0.0.0:80
+gunicorn flask:app --bind=0.0.0.0:80
